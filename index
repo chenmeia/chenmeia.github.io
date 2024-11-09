@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="土豆动物园 | 我的世界原版生存服务器">
+  <meta name="keywords" content="Minecraft, 土豆动物园, 游戏服务器, 生存服务器">
+  <meta name="author" content="土豆动物园团队">
+  <title>土豆动物园 - 我的世界原版生存服务器</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ccs/title_styles.css">
+</head>
+<body>
+  <!-- 顶部导航栏 -->
+  <header>
+    <div class="container">
+      <nav>
+        <ul>
+          <li><a href="#home">首页</a></li>
+          <li><a href="#features">服务器特点</a></li>
+          <li><a href="#join">加入我们</a></li>
+          <li><a href="#contact">联系我们</a></li>
+		  <li><a href="鸣谢.html">鸣谢</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 首页大图区域 -->
+  <section id="home" class="hero fade-in">
+    <div class="hero-content">
+      <h1>欢迎来到土豆动物园</h1>
+      <p>体验最纯粹的Minecraft生存世界，和我们一起探索更多惊喜！</p>
+      <a href="#join" class="cta-button">加入我们</a>
+    </div>
+  </section>
+
+  <!-- 服务器特点 -->
+  <section id="features" class="feature-section fade-in">
+    <div class="container">
+      <h2>服务器特点</h2>
+      <div class="feature-cards">
+        <div class="feature-card">
+          <h3>纯净生存</h3>
+          <p>提供最原汁原味的生存体验，没有过多的插件干扰。</p>
+        </div>
+        <div class="feature-card">
+          <h3>丰富活动</h3>
+          <p>定期举办各种玩家活动和挑战，奖励丰厚。</p>
+        </div>
+        <div class="feature-card">
+          <h3>友好社区</h3>
+          <p>我们的社区充满热情和活力，结识志同道合的朋友。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 加入我们 -->
+  <section id="join" class="join-section fade-in">
+    <div class="container">
+      <h2>加入我们</h2>
+      <p>服务器IP：<strong>potatozoo.2m.pub</strong></p>
+      <a href="https://qm.qq.com/q/k9wFONmbYc" class="cta-button">加入我们的 QQ 群</a>
+    </div>
+  </section>
+
+  <!-- 联系我们 -->
+  <section id="contact" class="contact-section fade-in">
+    <div class="container">
+      <h2>联系我们</h2>
+      <p>如有任何问题，请通过以下方式联系我们：</p>
+      <ul>
+        <li>邮箱：暂无</li>
+        <li>微信：暂无</li>
+        <li>TG：暂无</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 底部版权 -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 土豆动物园 | 版权所有</p>
+    </div>
+  </footer>
+
+  <script src="js/title.js"></script>
+</body>
+</html>
