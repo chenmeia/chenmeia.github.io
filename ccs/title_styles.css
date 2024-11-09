@@ -1,0 +1,211 @@
+/* 基本样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive; /* Minecraft像素风字体 */
+  background-color: #121212;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* 顶部导航栏 */
+header {
+  background-color: #00bcd4; /* 科技蓝色 */
+  padding: 15px 0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s, transform 0.2s;
+}
+
+nav ul li a:hover {
+  color: #ff5722; /* 悬停时变为橙色 */
+  transform: scale(1.1); /* 放大效果 */
+}
+
+/* 首页大图 */
+.hero {
+  background-image: url('img/potato-background.jpg'); /* 自定义Minecraft风格背景 */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-right: .15em solid #fff;
+  white-space: nowrap;
+  animation: typing 4s steps(50) 1s forwards, blinkCaret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blinkCaret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+/* 按钮样式 */
+.cta-button {
+  background-color: #ff5722;
+  color: #fff;
+  padding: 20px 40px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  margin-top: 30px;
+  border: 2px solid #ff5722;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.cta-button:hover {
+  background-color: transparent;
+  color: #ff5722;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 87, 34, 0.7); /* 悬停时的发光效果 */
+}
+
+/* 服务器特点 */
+.feature-section {
+  padding: 60px 0;
+  background-color: #181818;
+  border-top: 2px solid #00bcd4;
+}
+
+.feature-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #00bcd4;
+  margin-bottom: 30px;
+}
+
+.feature-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  width: 30%;
+  background-color: #222;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.feature-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 1rem;
+}
+
+/* 动态显示 */
+.fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
+
+/* 加入我们 */
+.join-section {
+  padding: 60px 0;
+  background-color: #121212;
+  text-align: center;
+}
+
+.join-section h2 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+/* 联系我们 */
+.contact-section {
+  padding: 60px 0;
+  background-color: #181818;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  color: #00bcd4;
+  margin-bottom: 20px;
+}
+
+.contact-section ul {
+  list-style-type: none;
+}
+
+.contact-section ul li {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+/* 底部版权 */
+footer {
+  background-color: #121212;
+  padding: 20px 0;
+  text-align: center;
+  color: #fff;
+  font-size: 1rem;
+}

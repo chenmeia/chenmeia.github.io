@@ -1,0 +1,193 @@
+/* 基本样式重置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive; /* 使用 Minecraft 风格的像素字体 */
+  background-color: #0a3d2a; /* 背景颜色 */
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden; /* 禁止水平滚动 */
+}
+
+/* 顶部导航栏 */
+header {
+  background-color: #006400; /* 深绿色背景 */
+  padding: 20px 0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+header .logo {
+  font-size: 2.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s, transform 0.2s;
+}
+
+nav ul li a:hover {
+  color: #ff5722;
+  transform: scale(1.1);
+}
+
+/* 页面主要内容 */
+h1, h2 {
+  text-align: center;
+  color: #ffcc00; /* Minecraft 风格的黄色 */
+  margin-bottom: 30px;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul li {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+a {
+  color: #ff5722;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Minecraft 图片图标 */
+.minecraft-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+/* 各个部分 */
+.thanks-section, .contributors-section, .special-thanks-section, .resources-section {
+  padding: 60px 0;
+  background-color: #004d1a; /* 深绿色背景 */
+  border-top: 2px solid #ffcc00;
+  border-bottom: 2px solid #ffcc00;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 1.5s ease-in-out forwards; /* 页面加载时的渐变动画 */
+}
+
+/* 贡献者部分 */
+.contributors-list {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.contributor-card {
+  background-color: #2a2a2a;
+  padding: 20px;
+  width: 220px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contributor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 188, 212, 0.5);
+}
+
+.contributor-card h3 {
+  font-size: 1.4rem;
+  color: #ff5722;
+  margin-bottom: 10px;
+}
+
+.contributor-card p {
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.contributor-icon {
+  margin-bottom: 10px;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 特别鸣谢部分 */
+.special-thanks-section ul {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.special-thanks-section li {
+  margin: 10px 0;
+}
+
+/* 资源部分 */
+.resources-section ul {
+  text-align: center;
+}
+
+.resources-section li {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+footer {
+  background-color: #2e2e2e; /* 深灰色背景 */
+  padding: 20px 0;
+  text-align: center;
+  color: #fff;
+  font-size: 1.1rem;
+  border-top: 1px solid #ff5722;
+}
+
+/* 为了保持页面整洁，增加一些小的间距 */
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+/* 特别鸣谢区域的图片 */
+.special-thanks-section img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
