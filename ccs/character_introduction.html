@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玩家介绍</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="ccs/character.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="avatar-container">
+                <img id="player-avatar" class="avatar" src="" alt="玩家头像">
+            </div>
+            <div class="name-container">
+                <h1 id="player-name" class="player-name"></h1>
+            </div>
+        </header>
+        <main class="main-content">
+            <section class="description">
+                <p id="player-description" class="player-description"></p>
+            </section>
+            <section class="radar-chart-container">
+                <canvas id="radar-chart" class="radar-chart"></canvas>
+            </section>
+        </main>
+        <footer class="footer">
+            <img src="images/server-logo.png" alt="服务器LOGO" class="server-logo">
+        </footer>
+    </div>
+    <script src="js/character.js"></script>
+</body>
+</html>
