@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PotatoZoo 服务器状态</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #ff7a18, #af002d 40%, #319197 60%, #004e92);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #fff;
+            line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 16px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            color: #ffeb3b;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            animation: bounceIn 1s ease-out;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .status, .details, .motd {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .status h3, .details h3, .motd h3 {
+            font-size: 26px;
+            font-weight: 600;
+            color: #4caf50;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
+            text-transform: uppercase;
+            animation: fadeInText 1s ease-out;
+        }
+
+        @keyframes fadeInText {
+            0% {
+                transform: translateX(-30px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .status p, .details p, .motd p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #fff;
+            opacity: 0.8;
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: #ffeb3b;
+        }
+
+        .details ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .details li {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #4caf50;
+            color: #fff;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            transform-origin: center;
+        }
+
+        .button:hover {
+            background-color: #388e3c;
+            transform: scale(1.1);
+        }
+
+        .loading {
+            text-align: center;
+            font-size: 20px;
+            color: #f0f0f0;
+            margin-top: 50px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            animation: fadeInText 1.5s ease-out;
+        }
+
+        .loading span {
+            color: #ffeb3b;
+        }
+
+        .bounce {
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>PotatoZoo 服务器状态</h1>
+
+        <div id="loading" class="loading">
+            <span class="bounce">加载中...</span>
+        </div>
+
+        <div id="server-status" class="status" style="display:none;">
+            <h3>服务器状态</h3>
+			<p>服务器名称: <a href="index.html">PotatoZoo</span></a></p>
+            <p>服务器是否在线: <span id="online-status" class="highlight"></span></p>
+            <p>IP 地址: <span id="ip-address" class="highlight"></span></p>
+            <p>端口: <span id="port" class="highlight"></span></p>
+            <p>最大玩家数: <span id="max-players" class="highlight"></span></p>
+            <p>当前玩家数: <span id="online-players" class="highlight"></span></p>
+        </div>
+
+        <div id="details" class="details" style="display:none;">
+            <h3>详细信息</h3>
+            <ul>
+                <li><strong>版本:</strong> <span id="version"></span></li>
+                <li><strong>协议版本:</strong> <span id="protocol"></span></li>
+                <li><strong>服务器软件:</strong> <span id="software"></span></li>
+                <li><strong>SRV 记录:</strong> <span id="srv-record"></span></li>
+            </ul>
+        </div>
+
+        <div id="motd" class="motd" style="display:none;">
+            <h3>服务器信息</h3>
+            <p>信息消息（MOTD）: <span id="motd-text" class="highlight"></span></p>
+        </div>
+
+        <a href="#" class="button" id="refresh-button">刷新状态</a>
+    </div>
+
+    <script>
+        // 获取服务器状态数据并显示
+        function loadServerStatus() {
+            fetch('https://api.mcstatus.io/v2/status/java/potatozoo.2m.pub')
+                .then(response => response.json())
+                .then(data => {
+                    // 隐藏加载文本
+                    document.getElementById('loading').style.display = 'none';
+
+                    // 显示服务器状态
+                    document.getElementById('server-status').style.display = 'block';
+                    document.getElementById('online-status').textContent = data.online ? '在线' : '离线';
+                    document.getElementById('ip-address').textContent = data.ip_address || '未知';
+                    document.getElementById('port').textContent = data.port || '未知';
+                    document.getElementById('max-players').textContent = data.players.max;
+                    document.getElementById('online-players').textContent = data.players.online;
+
+                    // 显示详细信息
+                    document.getElementById('details').style.display = 'block';
+                    document.getElementById('version').textContent = data.version.name_clean;
+                    document.getElementById('protocol').textContent = data.version.protocol;
+                    document.getElementById('software').textContent = data.software || '未提供';
+                    document.getElementById('srv-record').textContent = data.srv_record.host + ':' + data.srv_record.port;
+
+                    // 显示MOTD
+                    document.getElementById('motd').style.display = 'block';
+                    document.getElementById('motd-text').textContent = data.motd.clean;
+                })
+                .catch(error => {
+                    document.getElementById('loading').textContent = '无法加载数据';
+                    console.error('Error fetching server status:', error);
+                });
+        }
+
+        // 初次加载
+        loadServerStatus();
+
+        // 刷新按钮点击事件
+        document.getElementById('refresh-button').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('server-status').style.display = 'none';
+            document.getElementById('details').style.display = 'none';
+            document.getElementById('motd').style.display = 'none';
+            loadServerStatus();
+        });
+    </script>
+
+</body>
+</html>
