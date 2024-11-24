@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赞助</title>
+	<h1><a href="index.html">PotatoZoo</a></h1>
+    <style>/*CSS*/
+			
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffff00, #ffffff);
+            margin: 0;
+            padding: 0;
+            transition: filter 0.5s ease;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(50, 50, 50, 0.9);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            z-index: 10;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.5s ease; /* 添加淡入效果 */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .content {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        img {
+            max-width: 90%;
+            border: 5px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+            transition: transform 0.5s, opacity 0.5s; /* 添加opacity的过渡 */
+            opacity: 1; /* 确保图片显示 */
+        }
+
+        img:hover {
+            transform: scale(1.05);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-top: 20px;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            background-color: #c60055;
+            transform: translateY(-2px);
+        }
+
+        .description {
+            margin-top: 15px;
+            font-size: 20px;
+            color: #333;
+            text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.7);
+        }
+		h1 {
+		    width: 50%; /* 可自定义宽度 */
+		    margin: auto; /* 自动水平边距 */
+		    text-align: center; /* 文本居中 */
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay">
+        这里是赞助界面，请点击屏幕任意处关闭这条消息,赞助后并不能得到任何实质上的奖励！！！
+    </div>
+
+    <div class="content">
+        <div class="image-container">
+            <img id="image" src="ccs/img/微信.png" alt="图片" />
+            <div class="description" id="description">支付方式</div>
+            <button id="switchButton">切换支付方式</button>
+        </div>
+    </div>
+
+    <script>
+        const overlay = document.getElementById('overlay');
+        const switchButton = document.getElementById('switchButton');
+        const image = document.getElementById('image');
+        const description = document.getElementById('description');
+
+        const images = [
+            {
+                src: 'ccs/img/微信.png',
+                desc: '微信支付'
+            },
+            {
+                src: 'ccs/img/支付宝.jpg',
+                desc: '支付宝支付'
+            }
+        ];
+
+        let currentImageIndex = 0;
+
+        overlay.addEventListener('click', () => {
+            overlay.style.display = 'none'; // 隐藏告示
+        });
+
+        switchButton.addEventListener('click', () => {
+            // 添加渐隐效果
+            image.style.opacity = 0; // 渐隐效果
+            setTimeout(() => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                image.src = images[currentImageIndex].src;
+                description.textContent = images[currentImageIndex].desc;
+                image.style.opacity = 1; // 渐显效果
+            }, 300); // 与CSS Transition时间一致
+        });
+    </script>
+</body>
+</html>
